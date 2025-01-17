@@ -1,23 +1,31 @@
 package com.poveev.hematomacalculator;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.QuickContactBadge;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.lang.ref.Cleaner;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView resultTextView;
     private EditText A_number, B_number, C_number;
-    private Button add_button;
+    private Button button;
+
+    private Button information;
 
 
 
@@ -26,11 +34,14 @@ public class MainActivity extends AppCompatActivity {
      *                           previously being shut down then this Bundle contains the data it most
      *                           recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
      */
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -44,21 +55,52 @@ public class MainActivity extends AppCompatActivity {
         A_number = findViewById(R.id.A_number);
         B_number = findViewById(R.id.B_number);
         C_number = findViewById(R.id.C_number);
-        add_button = findViewById(R.id.add_button);
+        button = findViewById(R.id.button);
 
-        add_button.setOnClickListener(new View.OnClickListener() {
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 float num1 = Float.parseFloat(A_number.getText().toString());
                 float num2 = Float.parseFloat(B_number.getText().toString());
                 float num3 = Float.parseFloat(C_number.getText().toString());
-                float res =(num1 * num2 * num3) * 5/2 / 6;
+                float res = (num1 * num2 * num3) * 5 / 2 / 6;
                 resultTextView.setText(String.valueOf(res));
 
 
             }
         });
+        Button information = findViewById(R.id.information);
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showInfoAlert("Подсказка");
+            }
+        });
 
+
+    }
+    private void showInfoAlert(String text) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage(text)
+                .setTitle("Формулы подсчета объема гематом")
+                .setCancelable(false)
+                .setPositiveButton("Свернуть", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+    }
+
+
+
+    private void showInfo(String text){
 
     }
 }
