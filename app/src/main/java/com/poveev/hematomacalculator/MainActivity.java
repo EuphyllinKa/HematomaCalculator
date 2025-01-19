@@ -3,6 +3,7 @@ package com.poveev.hematomacalculator;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -98,9 +99,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+   private void showInfo(String text){
 
-
-    private void showInfo(String text){
-
+    }
+    public void goSubduralHematoma(View view) {
+        Intent intent = new Intent(this, SubduralHematoma.class);
+        startActivity(intent);
     }
 }
