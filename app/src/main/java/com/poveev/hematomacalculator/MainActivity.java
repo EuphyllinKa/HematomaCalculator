@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 float num1 = Float.parseFloat(A_number.getText().toString());
                 float num2 = Float.parseFloat(B_number.getText().toString());
                 float num3 = Float.parseFloat(C_number.getText().toString());
-                float res = (num1 * num2 * num3) * 5 / 2 / 6;
-                resultTextView.setText(String.valueOf(res));
+                float res = (num1 * num2 * num3) * 5 / 2 / 6/1000;
+                resultTextView.setText(String.valueOf(res)+ " cm³");
 
 
             }

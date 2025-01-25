@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Pick"
+        android:text="Рассчитать"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -22,20 +22,20 @@
 
     <TextView
         android:id="@+id/resultTextView"
-        android:layout_width="270dp"
-        android:layout_height="88dp"
+        android:layout_width="168dp"
+        android:layout_height="78dp"
         android:layout_marginStart="166dp"
         android:layout_marginTop="140dp"
         android:layout_marginEnd="187dp"
         android:autoSizeTextType="none"
-        android:text="Результат"
+        android:text=""
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" />
+        app:layout_constraintVertical_bias="0.694" />
 
     <EditText
         android:id="@+id/A_number"
@@ -43,6 +43,7 @@
         android:layout_height="69dp"
         android:ems="10"
         android:inputType="number"
+        android:hint="Значение 'A' в mm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -56,6 +57,7 @@
         android:layout_height="64dp"
         android:ems="10"
         android:inputType="number"
+        android:hint="Значение 'B' в mm"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,6 +72,7 @@
         android:layout_height="75dp"
         android:ems="10"
         android:inputType="number"
+        android:hint="Значение 'C' в mm"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,28 +82,30 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="254dp"
-        android:layout_height="111dp"
+        android:layout_width="236dp"
+        android:layout_height="125dp"
         android:fontFamily="sans-serif"
         android:text="Калькулятор внутримозговых гематом"
-        android:textSize="25sp"
+        android:textSize="29sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.014" />
 
     <Button
         android:id="@+id/information"
-        style="@style/Widget.AppCompat.Button.Small"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="576dp"
-        android:text="i"
+        android:text="Information"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.913"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.175" />
 
     <Button
         android:id="@+id/button3"

@@ -1,5 +1,6 @@
 package com.poveev.hematomacalculator;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +17,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class SubduralHematoma extends AppCompatActivity {
-    private EditText A_size,B_size,h1_size,h2_size;
+    private EditText A_size;
+    private EditText B_size;
+
+
+    private EditText h1_size;
+    private EditText h2_size;
 
     private Button add_SubdHemat;
 
@@ -24,7 +30,7 @@ public class SubduralHematoma extends AppCompatActivity {
 
     private Button button_information;
 
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +44,7 @@ public class SubduralHematoma extends AppCompatActivity {
 
         A_size = findViewById(R.id.A_size);
         B_size =findViewById(R.id.B_size);
+
         h1_size = findViewById(R.id.h1_size);
         h2_size = findViewById(R.id.h2_size);
 
@@ -58,17 +65,13 @@ public class SubduralHematoma extends AppCompatActivity {
                 float A = Float.parseFloat(A_size.getText().toString());
                 float B = Float.parseFloat(B_size.getText().toString());
                 float h1 = Float.parseFloat(h1_size.getText().toString());
-                float h2 = Float.parseFloat(h1_size.getText().toString());
+                float h2 = Float.parseFloat(h2_size.getText().toString());
 
-                float res = (A+B+h1+h2);
-                resaltViwe.setText(String.valueOf(res));
+                float res = (float) (Math.PI/6*(Math.pow(h1,3)+Math.pow(h2,3))+Math.PI/8*A*B*(h1+h2));
+                resaltViwe.setText(((res) + " см³"));
             }
         });
-
-
     }
-
-
 
     private void showInfoAlert(String text) {
             AlertDialog.Builder builder = new AlertDialog.Builder(SubduralHematoma.this);
@@ -78,7 +81,6 @@ public class SubduralHematoma extends AppCompatActivity {
                     .setPositiveButton("Свернуть", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
                         }
                     });
 
